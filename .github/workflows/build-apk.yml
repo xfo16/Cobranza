@@ -1,0 +1,51 @@
+name: Compilar APK de Android
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Configurar Java JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Instalar dependencias del proyecto
+        run: |
+          npm install
+
+      - name: Compilar el proyecto web
+        run: |
+          npm run build --if-present
+
+      - name: Instalar e inicializar Capacitor
+        run: |
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npx cap add android
+          npx cap sync
+
+      - name: Compilar APK con Gradle
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Subir el archivo APK para descargar
+        uses: actions/upload-artifact@v3
+        with:
+          name: App-Stitch-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
