@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>Phryma S.A.C. - Recibos de Cobranza</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Outfit:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error":"#ba1a1a","tertiary-fixed-dim":"#f8acff","on-background":"#0b1c30","on-tertiary":"#ffffff","on-primary-fixed-variant":"#314863","surface-container-low":"#eff4ff","surface-container-highest":"#d3e4fe","on-error-container":"#93000a","inverse-surface":"#213145","error-container":"#ffdad6","tertiary":"#280030","on-tertiary-fixed":"#350040","secondary-fixed-dim":"#59dcb5","on-secondary-fixed":"#002117","surface-container-high":"#dce9ff","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","tertiary-container":"#490057","secondary":"#006b53","surface-container":"#e5eeff","primary-container":"#0f2942","outline-variant":"#c3c6ce","on-error":"#ffffff","primary":"#001428","on-surface":"#0b1c30","background":"#f8f9ff","on-tertiary-container":"#c46ed0","surface":"#f8f9ff","secondary-fixed":"#79f9d0","surface-variant":"#d3e4fe","inverse-primary":"#b0c9e8","secondary-container":"#76f6cd","primary-fixed":"#d1e4ff","on-primary-container":"#7991af","on-surface-variant":"#43474d","outline":"#74777e","on-tertiary-fixed-variant":"#722181","inverse-on-surface":"#eaf1ff","on-primary":"#ffffff","surface-tint":"#49607c","tertiary-fixed":"#ffd6ff","on-secondary-fixed-variant":"#00513e","on-secondary-container":"#007057","on-primary-fixed":"#011d35","surface-dim":"#cbdbf5","primary-fixed-dim":"#b0c9e8","surface-bright":"#f8f9ff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-desktop":"1.5rem","space-sm":"0.5rem","margin-desktop":"2.5rem","space-xs":"0.25rem","space-2xl":"2rem","space-3xl":"3rem","space-xxs":"0.125rem","margin-mobile":"1rem","margin-tablet":"1.5rem","space-base":"1rem","gutter-mobile":"1rem","space-md":"0.75rem","space-lg":"1.25rem","space-xl":"1.5rem"},fontFamily:{"fiscal-numeral-lg":["JetBrains Mono"],"receipt-mono-sm":["JetBrains Mono"],"label-lg":["Inter"],"fiscal-numeral-md":["JetBrains Mono"],"label-md":["Inter"],"headline-md":["Outfit"],"headline-sm":["Outfit"],"headline-lg":["Outfit"],"body-md":["Inter"],"display-lg":["Outfit"],"headline-lg-mobile":["Outfit"],"body-sm":["Inter"],"body-lg":["Inter"]},fontSize:{"fiscal-numeral-lg":["24px",{"lineHeight":"28px","letterSpacing":"-0.03em","fontWeight":"700"}],"receipt-mono-sm":["11px",{"lineHeight":"15px","letterSpacing":"0.04em","fontWeight":"500"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"fiscal-numeral-md":["16px",{"lineHeight":"20px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"22px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Phryma SAC Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1V6Lo0qS9FHwZe3d66jgg1hL-WihcwaO99MgpAok1GPsRVwZddOh5ZPPekeJKrX06VF_wc364CP_sjkm3tI2HxIBk_iIPdscO-1igLADO947Qr2EkA1LWKX3El0PIIdNV0KZ4JAv9dHk9FQrTAGN_GA-MxYHAjSKn1mFkg3W5CJMTMIoNWlIeLvdIXyNXvHHwuwoK4TLwcySycCHCmsg75l6cdzBi38yhNlbbIovIz3FlaHkrFQ27YMD2XP"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary truncate leading-tight">Historial De Recibos</span><div class="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-secondary-container/30 shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span class="font-receipt-mono-sm text-receipt-mono-sm text-secondary font-semibold uppercase tracking-wider">En línea</span></div></div><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Gestión de Recibos y Cobranzas</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Perfil de cobrador" class="w-11 h-11 flex items-center justify-center rounded-full active:scale-95 transition-transform" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuQdlNNOo4JJkqbEAimD_mjyxEJElC1LpMIl_Z3mkEj9OzCSk_oVmlMoQHKVNN1jr-cWFRgKUV2Mg2dluyHnE6Y8pqPEvY29UojrkX_4f28bt8hgdTGUZ8u9QukFACMRe_CBvj5prOCoZ3xKljmouaYJt0zDIukZlyUerBxI1__5ejacm7KZqGAbqgHD8CSNLtE0SehGrY8W42UJ3PLtDF6OeAQHxIvVqNZ0DwR-Jvv1DT2e4VbDKT5A"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-20 bg-background"><div class="flex flex-col w-full">
+<!-- Cobrador Profile & Status Bar -->
+<section class="px-margin-mobile pt-space-md pb-space-sm">
+<div class="bg-primary-container text-on-primary rounded-xl p-space-base shadow-md relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-secondary/15 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between gap-space-sm relative z-10">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm bg-surface-container-highest" data-alt="Portrait of Peruvian professional male field collection specialist named Carlos Mendoza wearing a smart navy collared shirt with identification badge, warm smile, clean commercial office background with natural lighting, sharp focus on face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoFxvU1DBfFBDV7CQdkAC4NmRKZSkhJ0GqLT_hmxzekjMLl44RenT-DJd7vXC3JGcyE2fCzqHe-N7gY91yIYtmB72VvRMB5vaKGSUp3GeuwxByf3caWbTcMWKbWCdgW8wC1QEaMj4IiDPWv2qvf7C6ts32SS8kpOHZp_x2TQxkyF2G3MClXMAd9GRgooowJPBmPjr3aCEJOKegD33XWFEv_76RdQD1yqhS4D0HmuhoPliwUKxiPGf-Yg"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-secondary rounded-full shadow-[0_0_0_2px_#0f2942]"></span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-bold truncate">Carlos E. Mendoza</span>
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5 text-on-primary-container font-receipt-mono-sm text-receipt-mono-sm">
+<span>DNI: 45892147</span>
+<span>•</span>
+<span class="text-secondary-fixed font-semibold">Agente Rutas Lima Centro</span>
+</div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur-sm text-surface-bright font-receipt-mono-sm text-receipt-mono-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary-fixed">calendar_today</span>
+            Hoy, 24 Oct
+          </span>
+</div>
+</div>
+<!-- Métricas Principales: Split Bento -->
+<div class="grid grid-cols-2 gap-space-sm mt-space-base relative z-10">
+<div class="bg-surface-container-lowest/10 backdrop-blur-sm rounded-lg p-space-sm flex flex-col justify-between">
+<div class="flex items-center gap-1.5 text-on-primary-container">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">payments</span>
+<span class="font-label-md text-label-md">Total Cobrado Hoy</span>
+</div>
+<div class="mt-1">
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-surface-bright tracking-tight">S/ 14,850.00</div>
+<div class="flex items-center gap-1 mt-0.5 text-secondary-fixed font-receipt-mono-sm text-receipt-mono-sm">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>12 comprobantes</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest/10 backdrop-blur-sm rounded-lg p-space-sm flex flex-col justify-between">
+<div class="flex items-center gap-1.5 text-on-primary-container">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">pending_actions</span>
+<span class="font-label-md text-label-md">Saldos Pendientes</span>
+</div>
+<div class="mt-1">
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-tertiary-fixed tracking-tight">S/ 3,420.00</div>
+<div class="flex items-center gap-1 mt-0.5 text-tertiary-fixed-dim font-receipt-mono-sm text-receipt-mono-sm">
+<span class="material-symbols-outlined text-[13px]">history</span>
+<span>4 facturas por cerrar</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Desglose por Método de Pago -->
+<div class="mt-space-base pt-space-sm relative z-10">
+<div class="flex items-center justify-between text-on-primary-container mb-2">
+<span class="font-label-md text-label-md font-semibold">Canales Recaudados</span>
+<span class="font-receipt-mono-sm text-receipt-mono-sm">100% Cuadrado</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5">
+<!-- Efectivo -->
+<div class="bg-secondary-container/20 rounded p-1.5 flex flex-col">
+<div class="flex items-center gap-1 text-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">local_atm</span>
+<span class="font-receipt-mono-sm text-receipt-mono-sm uppercase font-semibold">Efec</span>
+</div>
+<span class="font-fiscal-numeral-md text-[13px] leading-tight text-surface-bright font-bold mt-1">S/ 5.2k</span>
+</div>
+<!-- Yape -->
+<div class="bg-tertiary-container/40 rounded p-1.5 flex flex-col">
+<div class="flex items-center gap-1 text-tertiary-fixed">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim inline-block"></span>
+<span class="font-receipt-mono-sm text-receipt-mono-sm uppercase font-semibold">Yape</span>
+</div>
+<span class="font-fiscal-numeral-md text-[13px] leading-tight text-surface-bright font-bold mt-1">S/ 3.8k</span>
+</div>
+<!-- Transferencia -->
+<div class="bg-surface-container-high/20 rounded p-1.5 flex flex-col">
+<div class="flex items-center gap-1 text-primary-fixed">
+<span class="material-symbols-outlined text-[14px]">sync_alt</span>
+<span class="font-receipt-mono-sm text-receipt-mono-sm uppercase font-semibold">Transf</span>
+</div>
+<span class="font-fiscal-numeral-md text-[13px] leading-tight text-surface-bright font-bold mt-1">S/ 4.3k</span>
+</div>
+<!-- Depósito -->
+<div class="bg-surface-container-highest/20 rounded p-1.5 flex flex-col">
+<div class="flex items-center gap-1 text-surface-container-highest">
+<span class="material-symbols-outlined text-[14px]">account_balance</span>
+<span class="font-receipt-mono-sm text-receipt-mono-sm uppercase font-semibold">Depós</span>
+</div>
+<span class="font-fiscal-numeral-md text-[13px] leading-tight text-surface-bright font-bold mt-1">S/ 1.5k</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Buscador Fiscal y Filtros Táctiles -->
+<section class="px-margin-mobile py-space-xs sticky top-16 z-40 bg-background/95 backdrop-blur-md">
+<div class="flex flex-col gap-space-xs">
+<!-- Search Input Input-Monto-Style -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant pl-10 pr-10 py-2.5 rounded-lg shadow-sm font-body-md text-body-md focus:outline-none focus:bg-surface-container-low transition-all" id="search-input" placeholder="Buscar cliente, recibo, factura o RUC..." type="search"/>
+<button aria-label="Limpiar búsqueda" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant p-1 active:scale-90" id="clear-search">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+<!-- Quick Chips Filter Bar -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-1 no-scrollbar">
+<button class="filter-chip active-filter shrink-0 px-3 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-semibold transition-transform active:scale-95 flex items-center gap-1" data-filter="all">
+<span>Todos</span>
+<span class="bg-on-primary/20 text-on-primary px-1.5 py-0.2 rounded-full font-receipt-mono-sm text-[10px]">12</span>
+</button>
+<button class="filter-chip shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md font-medium shadow-sm transition-transform active:scale-95 flex items-center gap-1" data-filter="pending">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Con Saldo Pendiente</span>
+<span class="bg-surface-container-high text-on-surface-variant px-1.5 py-0.2 rounded-full font-receipt-mono-sm text-[10px]">4</span>
+</button>
+<button class="filter-chip shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md font-medium shadow-sm transition-transform active:scale-95 flex items-center gap-1" data-filter="cleared">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Cancelado Total</span>
+</button>
+<button class="filter-chip shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md font-medium shadow-sm transition-transform active:scale-95 flex items-center gap-1" data-filter="yape">
+<span class="material-symbols-outlined text-[14px] text-tertiary">phone_android</span>
+<span>Yape</span>
+</button>
+<button class="filter-chip shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md font-medium shadow-sm transition-transform active:scale-95 flex items-center gap-1" data-filter="cash">
+<span class="material-symbols-outlined text-[14px] text-secondary">payments</span>
+<span>Efectivo</span>
+</button>
+<button class="filter-chip shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md font-medium shadow-sm transition-transform active:scale-95 flex items-center gap-1" data-filter="transfer">
+<span class="material-symbols-outlined text-[14px] text-primary">account_balance</span>
+<span>BCP / Transf.</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Lista de Recibos Táctiles con perforaciones fiscales -->
+<section class="px-margin-mobile pt-space-xs pb-space-2xl flex flex-col gap-space-md" id="receipts-feed">
+<!-- RECIBO 1: REC-2024-00842 (Con Saldo Pendiente) -->
+<article class="receipt-item bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200" data-method="yape" data-search="distribuidora los andes f001-0004921 rec-2024-00842" data-status="pending">
+<!-- Encabezado de la Tarjeta Recibo -->
+<div class="p-space-base pb-space-sm flex items-start justify-between gap-space-sm">
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-fiscal-numeral-md text-fiscal-numeral-md text-primary font-bold">REC-2024-00842</span>
+<span class="px-2 py-0.5 rounded font-receipt-mono-sm text-receipt-mono-sm bg-tertiary-fixed text-on-tertiary-fixed font-bold tracking-wide">YAPE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate mt-1">Distribuidora Los Andes S.A.C.</h3>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-receipt-mono-sm text-receipt-mono-sm">
+<span>RUC: 20554189321</span>
+<span>•</span>
+<span class="font-semibold text-primary">Factura: F001-0004921</span>
+</div>
+</div>
+<!-- Official Status Stamp / Badge -->
+<div class="shrink-0 flex flex-col items-end">
+<div class="px-2.5 py-1 rounded-full bg-tertiary-container/15 text-tertiary font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">warning</span>
+<span>Saldo Pendiente</span>
+</div>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-on-surface-variant mt-1">11:42 AM</span>
+</div>
+</div>
+<!-- Financial Split Breakdown -->
+<div class="px-space-base pb-space-sm grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low rounded-lg p-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant block">Monto Cobrado</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-secondary font-bold mt-0.5">S/ 1,800.00</div>
+<div class="font-receipt-mono-sm text-receipt-mono-sm text-secondary font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Pago Confirmado</span>
+</div>
+</div>
+<div class="bg-error-container/30 rounded-lg p-space-sm">
+<span class="font-label-md text-label-md text-on-error-container block">Saldo Restante</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-error font-bold mt-0.5">S/ 650.00</div>
+<div class="font-receipt-mono-sm text-receipt-mono-sm text-on-error-container font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+<span>Vence: 30 Oct</span>
+</div>
+</div>
+</div>
+<!-- Tactile Perforation Divider SVG -->
+<div class="relative w-full h-4 flex items-center justify-between px-2 overflow-hidden my-0.5">
+<div class="w-3 h-6 bg-background rounded-r-full -ml-3 shadow-inner"></div>
+<div class="w-full flex justify-around items-center px-1">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+</div>
+<div class="w-3 h-6 bg-background rounded-l-full -mr-3 shadow-inner"></div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="px-space-base py-space-sm bg-surface-container-lowest flex items-center justify-between gap-2">
+<button class="btn-action-view flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors active:scale-95" data-amount="S/ 1,800.00" data-channel="Yape" data-client="Distribuidora Los Andes S.A.C." data-debt="S/ 650.00" data-invoice="F001-0004921" data-receipt="REC-2024-00842" data-signer="Sr. Manuel Prado" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+<span>Ver Recibo</span>
+</button>
+<div class="flex items-center gap-1.5">
+<button aria-label="Enviar por WhatsApp" class="btn-whatsapp flex items-center justify-center w-10 h-10 rounded-lg bg-secondary-container/30 text-secondary hover:bg-secondary-container transition-colors active:scale-90" onclick="alert('Enlace de WhatsApp enviado al cliente +51 984 552 110')" title="Reenviar por WhatsApp" type="button">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</button>
+<button aria-label="Ver Firma" class="btn-signature flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors active:scale-90" onclick="document.getElementById('signature-modal').classList.remove('hidden')" title="Ver Firma Digital" type="button">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+</button>
+<button aria-label="Opciones" class="btn-menu flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-90" title="Más opciones" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<!-- RECIBO 2: REC-2024-00841 (Cancelado Total) -->
+<article class="receipt-item bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200" data-method="cash" data-search="comercializadora el sol eirl f001-0004890 rec-2024-00841" data-status="cleared">
+<div class="p-space-base pb-space-sm flex items-start justify-between gap-space-sm">
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-fiscal-numeral-md text-fiscal-numeral-md text-primary font-bold">REC-2024-00841</span>
+<span class="px-2 py-0.5 rounded font-receipt-mono-sm text-receipt-mono-sm bg-secondary-fixed text-on-secondary-fixed font-bold tracking-wide">EFECTIVO</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate mt-1">Comercializadora El Sol E.I.R.L.</h3>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-receipt-mono-sm text-receipt-mono-sm">
+<span>RUC: 20491023941</span>
+<span>•</span>
+<span class="font-semibold text-primary">Factura: F001-0004890</span>
+</div>
+</div>
+<div class="shrink-0 flex flex-col items-end">
+<div class="px-2.5 py-1 rounded-full bg-secondary-container/40 text-secondary font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>Cancelado Total</span>
+</div>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-on-surface-variant mt-1">10:15 AM</span>
+</div>
+</div>
+<div class="px-space-base pb-space-sm grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low rounded-lg p-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant block">Monto Cobrado</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-secondary font-bold mt-0.5">S/ 950.00</div>
+<div class="font-receipt-mono-sm text-receipt-mono-sm text-secondary font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">payments</span>
+<span>Efectivo en Mano</span>
+</div>
+</div>
+<div class="bg-secondary-container/20 rounded-lg p-space-sm flex flex-col justify-center">
+<span class="font-label-md text-label-md text-on-secondary-container block">Saldo Deuda</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-secondary font-bold mt-0.5">S/ 0.00</div>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-secondary font-semibold">100% Amortizado</span>
+</div>
+</div>
+<!-- Perforated Line -->
+<div class="relative w-full h-4 flex items-center justify-between px-2 overflow-hidden my-0.5">
+<div class="w-3 h-6 bg-background rounded-r-full -ml-3 shadow-inner"></div>
+<div class="w-full flex justify-around items-center px-1">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+</div>
+<div class="w-3 h-6 bg-background rounded-l-full -mr-3 shadow-inner"></div>
+</div>
+<div class="px-space-base py-space-sm bg-surface-container-lowest flex items-center justify-between gap-2">
+<button class="btn-action-view flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors active:scale-95" data-amount="S/ 950.00" data-channel="Efectivo" data-client="Comercializadora El Sol E.I.R.L." data-debt="S/ 0.00" data-invoice="F001-0004890" data-receipt="REC-2024-00841" data-signer="Doña Gloria Valdivia" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+<span>Ver Recibo</span>
+</button>
+<div class="flex items-center gap-1.5">
+<button aria-label="Enviar por WhatsApp" class="btn-whatsapp flex items-center justify-center w-10 h-10 rounded-lg bg-secondary-container/30 text-secondary hover:bg-secondary-container transition-colors active:scale-90" onclick="alert('Enlace de WhatsApp enviado al cliente +51 971 229 881')" title="Reenviar por WhatsApp" type="button">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</button>
+<button aria-label="Ver Firma" class="btn-signature flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors active:scale-90" onclick="document.getElementById('signature-modal').classList.remove('hidden')" title="Ver Firma Digital" type="button">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+</button>
+<button aria-label="Opciones" class="btn-menu flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-90" title="Más opciones" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<!-- RECIBO 3: REC-2024-00840 (Transferencia BCP - Saldo Pendiente) -->
+<article class="receipt-item bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200" data-method="transfer" data-search="corporacion textil lima bcp f001-0004755 rec-2024-00840" data-status="pending">
+<div class="p-space-base pb-space-sm flex items-start justify-between gap-space-sm">
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-fiscal-numeral-md text-fiscal-numeral-md text-primary font-bold">REC-2024-00840</span>
+<span class="px-2 py-0.5 rounded font-receipt-mono-sm text-receipt-mono-sm bg-primary-fixed text-on-primary-fixed font-bold tracking-wide">BCP TRANSF.</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate mt-1">Corporación Textil Lima S.A.</h3>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-receipt-mono-sm text-receipt-mono-sm">
+<span>RUC: 20119845209</span>
+<span>•</span>
+<span class="font-semibold text-primary">Factura: F001-0004755</span>
+</div>
+</div>
+<div class="shrink-0 flex flex-col items-end">
+<div class="px-2.5 py-1 rounded-full bg-tertiary-container/15 text-tertiary font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">warning</span>
+<span>Saldo Pendiente</span>
+</div>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-on-surface-variant mt-1">09:30 AM</span>
+</div>
+</div>
+<div class="px-space-base pb-space-sm grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low rounded-lg p-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant block">Monto Cobrado</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-secondary font-bold mt-0.5">S/ 4,200.00</div>
+<div class="font-receipt-mono-sm text-receipt-mono-sm text-on-surface-variant font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">verified_user</span>
+<span>Op: 4829104</span>
+</div>
+</div>
+<div class="bg-error-container/30 rounded-lg p-space-sm">
+<span class="font-label-md text-label-md text-on-error-container block">Saldo Restante</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-error font-bold mt-0.5">S/ 1,200.00</div>
+<div class="font-receipt-mono-sm text-receipt-mono-sm text-on-error-container font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">calendar_clock</span>
+<span>Vence: 05 Nov</span>
+</div>
+</div>
+</div>
+<!-- Perforated Line -->
+<div class="relative w-full h-4 flex items-center justify-between px-2 overflow-hidden my-0.5">
+<div class="w-3 h-6 bg-background rounded-r-full -ml-3 shadow-inner"></div>
+<div class="w-full flex justify-around items-center px-1">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+</div>
+<div class="w-3 h-6 bg-background rounded-l-full -mr-3 shadow-inner"></div>
+</div>
+<div class="px-space-base py-space-sm bg-surface-container-lowest flex items-center justify-between gap-2">
+<button class="btn-action-view flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors active:scale-95" data-amount="S/ 4,200.00" data-channel="Transferencia BCP" data-client="Corporación Textil Lima S.A." data-debt="S/ 1,200.00" data-invoice="F001-0004755" data-receipt="REC-2024-00840" data-signer="Ing. Roberto Quispe" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+<span>Ver Recibo</span>
+</button>
+<div class="flex items-center gap-1.5">
+<button aria-label="Enviar por WhatsApp" class="btn-whatsapp flex items-center justify-center w-10 h-10 rounded-lg bg-secondary-container/30 text-secondary hover:bg-secondary-container transition-colors active:scale-90" onclick="alert('Enlace de WhatsApp enviado al cliente +51 942 301 993')" title="Reenviar por WhatsApp" type="button">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</button>
+<button aria-label="Ver Firma" class="btn-signature flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors active:scale-90" onclick="document.getElementById('signature-modal').classList.remove('hidden')" title="Ver Firma Digital" type="button">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+</button>
+<button aria-label="Opciones" class="btn-menu flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-90" title="Más opciones" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<!-- RECIBO 4: REC-2024-00839 (Farmacias San Pedro - Cancelado Total) -->
+<article class="receipt-item bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200" data-method="deposit" data-search="farmacias san pedro f001-0004720 rec-2024-00839" data-status="cleared">
+<div class="p-space-base pb-space-sm flex items-start justify-between gap-space-sm">
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-fiscal-numeral-md text-fiscal-numeral-md text-primary font-bold">REC-2024-00839</span>
+<span class="px-2 py-0.5 rounded font-receipt-mono-sm text-receipt-mono-sm bg-surface-container-highest text-primary font-bold tracking-wide">PAGO SERVICIOS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate mt-1">Farmacias San Pedro S.R.L.</h3>
+<div class="flex items-center gap-2 mt-0.5 text-on-surface-variant font-receipt-mono-sm text-receipt-mono-sm">
+<span>RUC: 20387419823</span>
+<span>•</span>
+<span class="font-semibold text-primary">Factura: F001-0004720</span>
+</div>
+</div>
+<div class="shrink-0 flex flex-col items-end">
+<div class="px-2.5 py-1 rounded-full bg-secondary-container/40 text-secondary font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>Cancelado Total</span>
+</div>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-on-surface-variant mt-1">08:45 AM</span>
+</div>
+</div>
+<div class="px-space-base pb-space-sm grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low rounded-lg p-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant block">Monto Cobrado</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-secondary font-bold mt-0.5">S/ 620.00</div>
+<div class="font-receipt-mono-sm text-receipt-mono-sm text-secondary font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Abono Registrado</span>
+</div>
+</div>
+<div class="bg-secondary-container/20 rounded-lg p-space-sm flex flex-col justify-center">
+<span class="font-label-md text-label-md text-on-secondary-container block">Saldo Deuda</span>
+<div class="font-fiscal-numeral-lg text-fiscal-numeral-lg text-secondary font-bold mt-0.5">S/ 0.00</div>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-secondary font-semibold">Cancelación Íntegra</span>
+</div>
+</div>
+<!-- Perforated Line -->
+<div class="relative w-full h-4 flex items-center justify-between px-2 overflow-hidden my-0.5">
+<div class="w-3 h-6 bg-background rounded-r-full -ml-3 shadow-inner"></div>
+<div class="w-full flex justify-around items-center px-1">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-high"></div>
+</div>
+<div class="w-3 h-6 bg-background rounded-l-full -mr-3 shadow-inner"></div>
+</div>
+<div class="px-space-base py-space-sm bg-surface-container-lowest flex items-center justify-between gap-2">
+<button class="btn-action-view flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors active:scale-95" data-amount="S/ 620.00" data-channel="Depósito / Servicios" data-client="Farmacias San Pedro S.R.L." data-debt="S/ 0.00" data-invoice="F001-0004720" data-receipt="REC-2024-00839" data-signer="Q.F. Lucía Ramos" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+<span>Ver Recibo</span>
+</button>
+<div class="flex items-center gap-1.5">
+<button aria-label="Enviar por WhatsApp" class="btn-whatsapp flex items-center justify-center w-10 h-10 rounded-lg bg-secondary-container/30 text-secondary hover:bg-secondary-container transition-colors active:scale-90" onclick="alert('Enlace de WhatsApp enviado al cliente +51 955 782 144')" title="Reenviar por WhatsApp" type="button">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</button>
+<button aria-label="Ver Firma" class="btn-signature flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors active:scale-90" onclick="document.getElementById('signature-modal').classList.remove('hidden')" title="Ver Firma Digital" type="button">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+</button>
+<button aria-label="Opciones" class="btn-menu flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-90" title="Más opciones" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Empty State (Hidden initially) -->
+<div class="hidden flex-col items-center justify-center p-space-2xl text-center bg-surface-container-lowest rounded-xl shadow-sm my-space-md" id="empty-state">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-sm">
+<span class="material-symbols-outlined text-[36px]">search_off</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-primary">Sin comprobantes que coincidan</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-[260px]">Verifica el número de recibo, RUC o cliente ingresado en el buscador.</p>
+<button class="mt-space-base px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold active:scale-95" id="btn-reset-filters">
+        Restablecer Filtros
+      </button>
+</div>
+</section>
+<!-- Botón Flotante Acción Primaria: Nuevo Recibo (Floating Action Button) -->
+<div class="fixed bottom-20 right-margin-mobile z-40">
+<a class="flex items-center gap-2 pl-4 pr-5 py-3.5 rounded-full bg-primary text-on-primary shadow-xl hover:bg-primary-container active:scale-95 transition-transform" data-path="nuevo-recibo" href="#" style="box-shadow: 0 10px 25px -3px rgba(0, 20, 40, 0.35);">
+<span class="material-symbols-outlined text-[24px] text-secondary-fixed">add_circle</span>
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight">Nuevo Recibo</span>
+</a>
+</div>
+<!-- MODAL: Vista Detallada de Recibo Oficial Phryma S.A.C. -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/60 backdrop-blur-sm" id="receipt-modal">
+<div class="bg-surface-container-lowest w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[795px]">
+<!-- Header Modal -->
+<div class="p-space-base bg-primary text-on-primary flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed">verified_user</span>
+<div>
+<span class="font-label-lg text-label-lg font-bold block" id="modal-receipt-code">REC-2024-00842</span>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-on-primary-container">Comprobante Electrónico</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/10 flex items-center justify-center text-surface-bright active:scale-90" id="close-receipt-modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Recibo Digital Estilo Papel Fiscal -->
+<div class="p-space-base overflow-y-auto flex flex-col gap-space-sm relative">
+<!-- Official Stamp Watermark Cancelado/Control -->
+<div class="absolute right-6 top-16 pointer-events-none transform -rotate-12 border-4 border-secondary text-secondary font-display-lg text-[22px] px-3 py-1 font-extrabold rounded-lg tracking-widest opacity-85 uppercase shadow-sm">
+          PHRYMA COBRADO
+        </div>
+<div class="text-center pb-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary block">PHRYMA S.A.C.</span>
+<span class="font-receipt-mono-sm text-receipt-mono-sm text-on-surface-variant block">RUC: 20601293847</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Av. Argentina 2840, Lima - Perú</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm text-on-surface">
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Cliente:</span>
+<span class="font-bold text-right" id="modal-client-name">Distribuidora Los Andes</span>
+</div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Factura Afecta:</span>
+<span class="font-fiscal-numeral-md text-fiscal-numeral-md text-primary" id="modal-invoice-code">F001-0004921</span>
+</div>
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Canal:</span>
+<span class="font-bold text-secondary" id="modal-payment-channel">Yape</span>
+</div>
+</div>
+<!-- Desglose Montos -->
+<div class="bg-surface-container-highest/30 rounded-lg p-space-sm space-y-1.5 font-receipt-mono-sm text-receipt-mono-sm">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Subtotal Recaudado</span>
+<span class="font-bold" id="modal-subtotal">S/ 1,525.42</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">I.G.V. (18%)</span>
+<span class="font-bold" id="modal-tax">S/ 274.58</span>
+</div>
+<div class="pt-1 flex justify-between font-fiscal-numeral-lg text-fiscal-numeral-lg text-primary font-bold">
+<span>Cobrado:</span>
+<span id="modal-total-amount">S/ 1,800.00</span>
+</div>
+<div class="flex justify-between text-error font-bold pt-1">
+<span>Saldo por Cobrar:</span>
+<span id="modal-pending-debt">S/ 650.00</span>
+</div>
+</div>
+<!-- QR SUNAT simulado y Hash -->
+<div class="flex items-center gap-3 bg-surface-container-lowest p-2 rounded-lg">
+<div class="w-16 h-16 bg-primary-container p-1 rounded shrink-0 flex items-center justify-center">
+<!-- Simulated QR code representation -->
+<svg class="w-14 h-14 text-surface-bright" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm12 0h2v2h-2v-2zm-2 2h2v4h-2v-4zm4 2h4v2h-4v-2zm2-4h2v2h-2v-2zm-2-2h4v2h-4v-2z"></path>
+</svg>
+</div>
+<div class="min-w-0 flex flex-col justify-center">
+<span class="font-receipt-mono-sm text-[10px] text-on-surface-variant leading-tight block">HASH FISCAL SUNAT:</span>
+<span class="font-receipt-mono-sm text-[10px] text-primary truncate font-bold">8fa9-c901-b384-ef44-71bc94</span>
+<span class="font-receipt-mono-sm text-[10px] text-secondary font-semibold mt-1">Autorización SUNAT 034-2024</span>
+</div>
+</div>
+</div>
+<!-- Acciones Inferiores del Modal -->
+<div class="p-space-base bg-surface-container-low flex items-center gap-2">
+<button class="flex-1 py-3 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform" onclick="alert('Descargando archivo PDF firmado digitalmente...')" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Descargar PDF</span>
+</button>
+<button class="p-3 rounded-xl bg-secondary text-on-secondary flex items-center justify-center active:scale-95 transition-transform" onclick="alert('Imprimiendo en impresora térmica Bluetooth PHRYMA-POS-01')" type="button">
+<span class="material-symbols-outlined text-[22px]">print</span>
+</button>
+</div>
+</div>
+</div>
+<!-- MODAL: Visor de Firma Digital de Conformidad -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/60 backdrop-blur-sm" id="signature-modal">
+<div class="bg-surface-container-lowest w-full max-w-xs rounded-2xl shadow-2xl p-space-base flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary">draw</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Firma de Cargo</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface active:scale-90" onclick="document.getElementById('signature-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col items-center justify-center h-44 relative overflow-hidden">
+<!-- Simulated Real Signature SVG Path -->
+<svg class="w-48 h-28 text-primary stroke-current fill-none stroke-[2.5]" viewbox="0 0 200 100">
+<path d="M 20,60 Q 40,20 60,65 T 90,40 Q 110,90 130,45 T 160,55 Q 170,30 185,50" stroke-linecap="round" stroke-linejoin="round"></path>
+<path class="text-on-surface-variant" d="M 40,75 L 175,75" stroke-dasharray="4,4" stroke-width="1.5"></path>
+</svg>
+<span class="absolute bottom-2 text-on-surface-variant font-receipt-mono-sm text-receipt-mono-sm">Firma digital capturada en terminal</span>
+</div>
+<div class="text-center">
+<span class="font-label-md text-label-md font-bold text-on-surface block">Receptor Autorizado</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">DNI y huella biométrica verificada</span>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold active:scale-95 transition-transform mt-1" onclick="document.getElementById('signature-modal').classList.add('hidden')">
+        Cerrar
+      </button>
+</div>
+</div>
+</div>
+<script>
+  // Filter Logic & Interactive Search
+  (function() {
+    const filterButtons = document.querySelectorAll('.filter-chip');
+    const receiptItems = document.querySelectorAll('.receipt-item');
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search');
+    const emptyState = document.getElementById('empty-state');
+    const resetFiltersBtn = document.getElementById('btn-reset-filters');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function applyFilterAndSearch() {
+      let visibleCount = 0;
+
+      receiptItems.forEach(item => {
+        const itemStatus = item.getAttribute('data-status');
+        const itemMethod = item.getAttribute('data-method');
+        const itemSearchText = item.getAttribute('data-search').toLowerCase();
+
+        let matchesFilter = false;
+        if (currentFilter === 'all') {
+          matchesFilter = true;
+        } else if (currentFilter === 'pending' && itemStatus === 'pending') {
+          matchesFilter = true;
+        } else if (currentFilter === 'cleared' && itemStatus === 'cleared') {
+          matchesFilter = true;
+        } else if (currentFilter === 'yape' && itemMethod === 'yape') {
+          matchesFilter = true;
+        } else if (currentFilter === 'cash' && itemMethod === 'cash') {
+          matchesFilter = true;
+        } else if (currentFilter === 'transfer' && itemMethod === 'transfer') {
+          matchesFilter = true;
+        }
+
+        const matchesSearch = searchQuery === '' || itemSearchText.includes(searchQuery);
+
+        if (matchesFilter && matchesSearch) {
+          item.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      if (visibleCount === 0) {
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+      } else {
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+      }
+    }
+
+    // Filter Buttons Click
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-lowest', 'text-on-surface');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+        
+        currentFilter = btn.getAttribute('data-filter');
+        applyFilterAndSearch();
+      });
+    });
+
+    // Search input listener
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      if (searchQuery.length > 0) {
+        clearSearchBtn.classList.remove('hidden');
+      } else {
+        clearSearchBtn.classList.add('hidden');
+      }
+      applyFilterAndSearch();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      applyFilterAndSearch();
+    });
+
+    resetFiltersBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      currentFilter = 'all';
+      filterButtons.forEach((b, idx) => {
+        if (idx === 0) {
+          b.classList.add('bg-primary', 'text-on-primary');
+          b.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+        } else {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-lowest', 'text-on-surface');
+        }
+      });
+      applyFilterAndSearch();
+    });
+
+    // Modal Receipt Detail Triggers
+    const viewButtons = document.querySelectorAll('.btn-action-view');
+    const receiptModal = document.getElementById('receipt-modal');
+    const closeReceiptModalBtn = document.getElementById('close-receipt-modal');
+
+    viewButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('modal-receipt-code').textContent = btn.getAttribute('data-receipt');
+        document.getElementById('modal-client-name').textContent = btn.getAttribute('data-client');
+        document.getElementById('modal-invoice-code').textContent = btn.getAttribute('data-invoice');
+        document.getElementById('modal-payment-channel').textContent = btn.getAttribute('data-channel');
+        document.getElementById('modal-total-amount').textContent = btn.getAttribute('data-amount');
+        document.getElementById('modal-pending-debt').textContent = btn.getAttribute('data-debt');
+
+        receiptModal.classList.remove('hidden');
+      });
+    });
+
+    closeReceiptModalBtn.addEventListener('click', () => {
+      receiptModal.classList.add('hidden');
+    });
+
+    receiptModal.addEventListener('click', (e) => {
+      if (e.target === receiptModal) {
+        receiptModal.classList.add('hidden');
+      }
+    });
+
+    const signatureModal = document.getElementById('signature-modal');
+    signatureModal.addEventListener('click', (e) => {
+      if (e.target === signatureModal) {
+        signatureModal.classList.add('hidden');
+      }
+    });
+
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(15,41,66,0.06)]" data-active-classes="text-secondary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] h-12 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="nuevo-recibo" href="#"><span class="material-symbols-outlined text-[24px]">edit_document</span><span class="font-label-md text-label-md font-semibold">Nuevo</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] h-12 gap-0.5 transition-colors text-secondary" data-path="historial-de-recibos" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="font-label-md text-label-md font-semibold">Historial</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] h-12 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="cartera-de-clientes" href="#"><span class="material-symbols-outlined text-[24px]">badge</span><span class="font-label-md text-label-md font-semibold">Clientes</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] h-12 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="caja-y-reportes" href="#"><span class="material-symbols-outlined text-[24px]">account_balance_wallet</span><span class="font-label-md text-label-md font-semibold">Caja</span></a></div></nav></body></html>
