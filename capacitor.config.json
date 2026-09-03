@@ -1,0 +1,6 @@
+{
+  "appId": "com.miapp.stitch",
+  "appName": "Mi App Stitch",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
