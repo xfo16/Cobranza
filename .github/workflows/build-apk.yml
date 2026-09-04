@@ -16,7 +16,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '20'
 
       - name: Configurar Java JDK
         uses: actions/setup-java@v5
@@ -24,33 +24,47 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Instalar dependencias
+      - name: Buscar carpeta e instalar dependencias
         run: |
+          # Buscar package.json si está en una subcarpeta
+          if [ ! -f "package.json" ]; then
+            SUBFOLDER=$(find . -maxdepth 2 -name "package.json" -exec dirname {} \;)
+            if [ -n "$SUBFOLDER" ]; then
+              cd "$SUBFOLDER"
+            fi
+          fi
+          
           npm install --legacy-peer-deps
 
-      - name: Compilar proyecto web
-        run: |
-          npm run build --if-present || true
-          if [ ! -d "dist" ] && [ ! -d "build" ] && [ ! -d "public" ]; then
-            mkdir -p dist
-            echo "<html><body><h1>App Stitch</h1></body></html>" > dist/index.html
-          fi
+          # Compilar el proyecto web
+          npm run build --if-present
 
-      - name: Configurar e instalar Capacitor
-        run: |
+          # Detectar automáticamente qué carpeta de salida generó la compilación
+          WEB_DIR="dist"
+          if [ -d "build" ]; then WEB_DIR="build"; fi
+          if [ -d "out" ]; then WEB_DIR="out"; fi
+          if [ -d "public" ]; then WEB_DIR="public"; fi
+          
+          echo "Carpeta web detectada: $WEB_DIR"
+
+          # Configurar e instalar Capacitor adaptado a la carpeta hallada
           npm install @capacitor/core @capacitor/cli @capacitor/android
-          npx cap init "AppStitch" "com.miapp.stitch" --web-dir "dist" || true
-          npx cap add android || true
-          npx cap sync
+          npx cap init "CobranzaApp" "com.cobranza.app" --web-dir "$WEB_DIR" || true
+          
+          # Forzar la creación de la plataforma Android
+          rm -rf android
+          npx cap add android
+          npx cap copy android
+          npx cap sync android
 
-      - name: Compilar APK con Gradle
-        run: |
+          # Compilar APK desactivando validaciones estrictas
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace
+          ./gradlew assembleDebug --no-daemon --stacktrace -Pandroid.overridePathCheck=true
 
       - name: Subir el archivo APK
         uses: actions/upload-artifact@v4
         with:
-          name: App-Stitch-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: App-Cobranza-APK
+          path: |
+            **/android/app/build/outputs/apk/debug/app-debug.apk
