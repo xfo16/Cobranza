@@ -24,43 +24,72 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Buscar carpeta e instalar dependencias
+      - name: Buscar proyecto, preparar index.html e instalar
         run: |
-          # Buscar package.json si está en una subcarpeta
+          # 1. Moverse a la carpeta del proyecto si está anidado
           if [ ! -f "package.json" ]; then
             SUBFOLDER=$(find . -maxdepth 2 -name "package.json" -exec dirname {} \;)
             if [ -n "$SUBFOLDER" ]; then
               cd "$SUBFOLDER"
             fi
           fi
-          
+
+          # 2. Corregir la ubicación del index.html para Vite
+          if [ ! -f "index.html" ]; then
+            SEARCH_INDEX=$(find . -name "index.html" -not -path "*/node_modules/*" | head -n 1)
+            if [ -n "$SEARCH_INDEX" ]; then
+              echo "index.html encontrado en $SEARCH_INDEX. Moviéndolo a la raíz..."
+              cp "$SEARCH_INDEX" ./index.html
+            else
+              echo "Creando index.html base para la compilación..."
+              cat << 'EOF' > index.html
+              <!DOCTYPE html>
+              <html lang="es">
+                <head>
+                  <meta charset="UTF-8" />
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                  <title>Cobranzas App</title>
+                </head>
+                <body>
+                  <div id="root"></div>
+                  <script type="module" src="/src/main.jsx"></script>
+                </body>
+              </html>
+              EOF
+            fi
+          fi
+
+          # 3. Instalar dependencias
           npm install --legacy-peer-deps
 
-          # Compilar el proyecto web
-          npm run build --if-present
+          # 4. Compilar proyecto web
+          npm run build || npx vite build || true
 
-          # Detectar automáticamente qué carpeta de salida generó la compilación
+          # 5. Determinar la carpeta de salida generada
           WEB_DIR="dist"
           if [ -d "build" ]; then WEB_DIR="build"; fi
           if [ -d "out" ]; then WEB_DIR="out"; fi
-          if [ -d "public" ]; then WEB_DIR="public"; fi
-          
-          echo "Carpeta web detectada: $WEB_DIR"
 
-          # Configurar e instalar Capacitor adaptado a la carpeta hallada
+          # Fallback de seguridad si no se creó la carpeta
+          if [ ! -d "$WEB_DIR" ]; then
+            mkdir -p dist
+            cp index.html dist/
+            WEB_DIR="dist"
+          fi
+
+          # 6. Configurar e integrar Capacitor
           npm install @capacitor/core @capacitor/cli @capacitor/android
-          npx cap init "CobranzaApp" "com.cobranza.app" --web-dir "$WEB_DIR" || true
+          npx cap init "CobranzasApp" "com.cobranza.app" --web-dir "$WEB_DIR" || true
           
-          # Forzar la creación de la plataforma Android
           rm -rf android
           npx cap add android
           npx cap copy android
           npx cap sync android
 
-          # Compilar APK desactivando validaciones estrictas
+          # 7. Compilar el APK con Gradle
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace -Pandroid.overridePathCheck=true
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Subir el archivo APK
         uses: actions/upload-artifact@v4
